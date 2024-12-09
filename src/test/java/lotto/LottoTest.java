@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.util.List;
 import lotto.error.exception.DuplicateNumberException;
+import lotto.error.exception.NumberRangeException;
 import lotto.error.exception.NumbersCountException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -33,5 +34,20 @@ class LottoTest {
     void 로또_번호에_중복된_숫자가_있으면_예외가_발생한다() {
         assertThatThrownBy(() -> new Lotto(List.of(1, 2, 3, 4, 5, 5)))
             .isInstanceOf(DuplicateNumberException.class);
+    }
+
+    @DisplayName("로또 번호의 숫자 범위안에 없으면 예외가 발생한다.")
+    @ParameterizedTest
+    @MethodSource("numbersThatContainingNotInRange")
+    void containingNotInRangeNumber(List<Integer> numbersContainingNotInRange) {
+        assertThatThrownBy(() -> new Lotto(numbersContainingNotInRange))
+            .isInstanceOf(NumberRangeException.class);
+    }
+
+    static List<Arguments> numbersThatContainingNotInRange() {
+        return List.of(
+            Arguments.of(List.of(0, 2, 3, 4, 5, 6)),
+            Arguments.of(List.of(1, 2, 3, 4, 5, 46))
+        );
     }
 }
