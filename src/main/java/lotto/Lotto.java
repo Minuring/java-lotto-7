@@ -23,6 +23,16 @@ public class Lotto {
         return Collections.unmodifiableList(numbers);
     }
 
+    public int countMatches(Lotto other) {
+        return (int) this.numbers.stream()
+            .filter(other.numbers::contains)
+            .count();
+    }
+
+    public boolean containsNumber(int number) {
+        return this.numbers.contains(number);
+    }
+
     private void validate(List<Integer> numbers) {
         validateCount(numbers);
         numbers.forEach(LottoValidator::validateRange);
