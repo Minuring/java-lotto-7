@@ -1,8 +1,8 @@
 package lotto;
 
-import static lotto.Lotto.NUMBERS_COUNT;
-import static lotto.Lotto.NUMBER_MAX;
-import static lotto.Lotto.NUMBER_MIN;
+import static lotto.domain.Lotto.NUMBERS_COUNT;
+import static lotto.domain.Lotto.NUMBER_MAX;
+import static lotto.domain.Lotto.NUMBER_MIN;
 
 import java.util.List;
 import lotto.error.exception.DuplicateNumberException;

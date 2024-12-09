@@ -1,8 +1,9 @@
-package lotto;
+package lotto.domain;
 
 import static lotto.LottoValidator.validateRange;
 
 import java.util.ArrayList;
+import lotto.LottoValidator;
 
 public class WinningLotto {
 

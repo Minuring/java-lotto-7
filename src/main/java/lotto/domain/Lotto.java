@@ -1,10 +1,11 @@
-package lotto;
+package lotto.domain;
 
 import static lotto.LottoValidator.validateCount;
 import static lotto.LottoValidator.validateDuplicate;
 
 import java.util.Collections;
 import java.util.List;
+import lotto.LottoValidator;
 
 public class Lotto {
 

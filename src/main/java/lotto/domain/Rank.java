@@ -1,4 +1,4 @@
-package lotto;
+package lotto.domain;
 
 import java.util.Arrays;
 
@@ -18,7 +18,7 @@ public enum Rank {
         this.required = required;
     }
 
-    static Rank of(int matchedCount, boolean matchesBonus) {
+    public static Rank of(int matchedCount, boolean matchesBonus) {
         if (matchedCount == SECOND.required) {
             return determineSecondOrThird(matchesBonus);
         }

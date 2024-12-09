@@ -4,6 +4,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.util.List;
+import lotto.domain.Lotto;
+import lotto.domain.Rank;
+import lotto.domain.WinningLotto;
 import lotto.error.exception.DuplicateNumberException;
 import lotto.error.exception.NumberRangeException;
 import org.junit.jupiter.api.DisplayName;
