@@ -22,7 +22,6 @@ public class PurchasedLotto {
     public Map<Rank, Long> countRanks(WinningLotto winningLotto) {
         return lottos.stream()
             .map(winningLotto::rank)
-            .sorted()
             .collect(Collectors.groupingBy(rank -> rank, Collectors.counting()));
     }
 
