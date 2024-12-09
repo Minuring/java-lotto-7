@@ -18,6 +18,10 @@ public enum Rank {
         this.required = required;
     }
 
+    public int prize() {
+        return prize;
+    }
+
     public static Rank of(int matchedCount, boolean matchesBonus) {
         if (matchedCount == SECOND.required) {
             return determineSecondOrThird(matchesBonus);
