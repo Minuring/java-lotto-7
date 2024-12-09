@@ -22,6 +22,10 @@ public enum Rank {
         return prize;
     }
 
+    public int required() {
+        return required;
+    }
+
     public static Rank of(int matchedCount, boolean matchesBonus) {
         if (matchedCount == SECOND.required) {
             return determineSecondOrThird(matchesBonus);
