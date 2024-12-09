@@ -10,9 +10,9 @@ public class LottoShop {
 
     public static final int PRICE = 1000;
 
-    public static PurchasedLotto purchase(int buyAmount) {
+    public static PurchasedLotto purchase(long buyAmount) {
         validateBuyAmount(buyAmount);
-        int count = buyAmount / PRICE;
+        int count = (int) buyAmount / PRICE;
         List<Lotto> lottos = generateLottos(count);
         return new PurchasedLotto(lottos);
     }
@@ -26,8 +26,8 @@ public class LottoShop {
         return lottos;
     }
 
-    private static void validateBuyAmount(int buyAmount) {
-        int count = buyAmount / PRICE;
+    private static void validateBuyAmount(long buyAmount) {
+        long count = buyAmount / PRICE;
         if (count < 1 || buyAmount % PRICE != 0) {
             throw new InvalidBuyAmountException();
         }
