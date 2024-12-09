@@ -34,6 +34,11 @@ public class Lotto {
         return this.numbers.contains(number);
     }
 
+    @Override
+    public String toString() {
+        return numbers.toString();
+    }
+
     private void validate(List<Integer> numbers) {
         validateCount(numbers);
         numbers.forEach(LottoValidator::validateRange);
