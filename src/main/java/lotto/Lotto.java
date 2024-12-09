@@ -1,9 +1,9 @@
 package lotto;
 
+import static lotto.LottoValidator.validateCount;
+import static lotto.LottoValidator.validateDuplicate;
+
 import java.util.List;
-import lotto.error.exception.DuplicateNumberException;
-import lotto.error.exception.NumberRangeException;
-import lotto.error.exception.NumbersCountException;
 
 public class Lotto {
 
@@ -18,25 +18,9 @@ public class Lotto {
         this.numbers = numbers;
     }
 
-    private static void validate(List<Integer> numbers) {
-        if (numbers.size() != NUMBERS_COUNT) {
-            throw new NumbersCountException();
-        }
-        numbers.forEach(Lotto::validateRange);
+    private void validate(List<Integer> numbers) {
+        validateCount(numbers);
+        numbers.forEach(LottoValidator::validateRange);
         validateDuplicate(numbers);
-    }
-
-    private static void validateRange(int number) {
-        if (number < NUMBER_MIN || number > NUMBER_MAX) {
-            throw new NumberRangeException();
-        }
-    }
-
-    private static void validateDuplicate(List<Integer> numbers) {
-        long distinctSize = numbers.stream().distinct().count();
-        int size = numbers.size();
-        if (distinctSize != size) {
-            throw new DuplicateNumberException();
-        }
     }
 }
